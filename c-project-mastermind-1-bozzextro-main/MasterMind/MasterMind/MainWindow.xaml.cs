@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,8 +26,8 @@ namespace MasterMind
         string[] kleurenArray = {"Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw"};
         string[] code;
         string[] highScores;
-        
-        
+
+        string userName;
 
         int gamesCounter = 0;
         int pogingenCounter = 0;
@@ -56,9 +58,11 @@ namespace MasterMind
         public MainWindow()
         {
             InitializeComponent();
+            userName = StartGame();
             GenereerCode();
             VulCbo();
             highScores = new string[15];
+            
 
         }
         public void GenereerCode()
@@ -331,7 +335,7 @@ namespace MasterMind
         private void ResetGame()
         {
             //naam speler moet nog geimplementeert worden
-            highScores[gamesCounter] = $"Naam speler - {pogingenCounter} Pogingen - {score}/100";
+            highScores[gamesCounter] = $"{userName} - {pogingenCounter} Pogingen - {score}/100";
             gamesCounter++;
 
             GenereerCode();
@@ -375,9 +379,18 @@ namespace MasterMind
             }             
         }
 
-        private void StartGame()
+        private string StartGame()
         {
-            
+            bool isUserNameChosen = false;
+            while (!isUserNameChosen)
+            {
+                userName = Interaction.InputBox("Geef een username", "Username", "Jan", 500);
+                if (userName != "" && userName != null)
+                { 
+                    isUserNameChosen = true;
+                }
+            }
+            return userName;
         }
 
         private void MenuItemNieuwSpel_Click(object sender, RoutedEventArgs e)
