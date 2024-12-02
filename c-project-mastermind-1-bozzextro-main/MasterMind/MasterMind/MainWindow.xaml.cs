@@ -31,6 +31,7 @@ namespace MasterMind
 
         int gamesCounter = 0;
         int pogingenCounter = 0;
+        int maximaalAantalPogingen = 10;
 
         string geselecteerdeKleur1;
         string geselecteerdeKleur2;
@@ -143,7 +144,7 @@ namespace MasterMind
         private void BtnCheck_Click(object sender, RoutedEventArgs e)
         {
             int minPunten = 0;
-            if (CheckCboFilled() && pogingenCounter<10)
+            if (CheckCboFilled() && pogingenCounter<maximaalAantalPogingen)
             {
                 if (code.Contains(Cbo1.SelectedItem.ToString()))
                 {
@@ -235,13 +236,13 @@ namespace MasterMind
                 }
                 pogingenCounter++;
                 score = score - minPunten;
-                LblPogingen.Content = $"Poging {pogingenCounter}/10";
+                LblPogingen.Content = $"Poging {pogingenCounter}/{maximaalAantalPogingen}";
                 FoutievePogingenToevoegen();
                 LblScore.Content = $"Score: {score}";
                 CheckCodeEnPogingen();
                 aantalCorrecteKleuren = 0;
             }
-            else if(pogingenCounter<10)
+            else if(pogingenCounter<maximaalAantalPogingen)
             {
                 MessageBox.Show("Gelieve voor elke combobox een selectie te maken.");
             }
@@ -284,7 +285,7 @@ namespace MasterMind
                 MessageBox.Show("Proficiat, u heeft de code gekraakt!");
                 ResetGame();
             }
-            else if(pogingenCounter == 10)
+            else if(pogingenCounter == maximaalAantalPogingen)
             {
                 string codeNaarCommaSepString = string.Join(", ", code);
                 MessageBox.Show($"Geen pogingen meer! \n De code was : {codeNaarCommaSepString}");
@@ -358,7 +359,7 @@ namespace MasterMind
             score = 100;
             pogingenCounter = 0;
 
-            LblPogingen.Content = "Poging 0/10";
+            LblPogingen.Content = $"Poging 0/{maximaalAantalPogingen}";
             LblScore.Content = "Score: 100";
 
         }
@@ -415,6 +416,17 @@ namespace MasterMind
 
         private void MenuItemAantalPogingen_Click(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void MenuItemAantalPogingen_Click_1(object sender, RoutedEventArgs e)
+        {
+            maximaalAantalPogingen = 1;
+            while (maximaalAantalPogingen < 3 || maximaalAantalPogingen > 20)
+            {
+                maximaalAantalPogingen = Convert.ToInt32(Interaction.InputBox("Maximaal aantal pogingen:", "Max pogingen [3-20]", "10", 500));
+            }
+            LblPogingen.Content = $"Poging {pogingenCounter}/{maximaalAantalPogingen}";
 
         }
     }

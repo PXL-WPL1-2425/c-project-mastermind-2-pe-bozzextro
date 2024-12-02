@@ -26,7 +26,7 @@
                 <MenuItem Header="Afsluiten" Name="MenuItemAfsluiten" Click="MenuItemAfsluiten_Click"/>
             </MenuItem>
             <MenuItem Header="Instellingen">
-                <MenuItem Header="Aantal Pogingen" Name="MenuItemAantalPogingen" Click="MenuItemAantalPogingen_Click"/>
+                <MenuItem Header="Aantal Pogingen" Name="MenuItemAantalPogingen" Click="MenuItemAantalPogingen_Click_1"/>
             </MenuItem>
         </Menu>
         
