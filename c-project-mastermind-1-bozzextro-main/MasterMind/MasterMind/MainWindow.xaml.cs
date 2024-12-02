@@ -269,6 +269,18 @@ namespace MasterMind
 
         private void CheckCodeEnPogingen()
         {
+            if(aantalCorrecteKleuren == 4)
+            {
+                MessageBox.Show("Proficiat, u heeft de code gekraakt!");
+                ResetGame();
+            }
+            else if(pogingenCounter == 10)
+            {
+                string codeNaarCommaSepString = string.Join(", ", code);
+                MessageBox.Show($"Geen pogingen meer! \n De code was : {codeNaarCommaSepString}");
+                ResetGame();
+            }
+            /*
             if (aantalCorrecteKleuren == 4)
             {
                 var result = MessageBox.Show(
@@ -305,8 +317,9 @@ namespace MasterMind
                     Close();
                 }
                 ResetGame();
-
+           
             }
+             */
         }
 
         private void ResetGame()
@@ -352,6 +365,11 @@ namespace MasterMind
             }             
         }
 
+        private void StartGame()
+        {
+            
+        }
+
         private void MenuItemNieuwSpel_Click(object sender, RoutedEventArgs e)
         {
 
@@ -369,7 +387,7 @@ namespace MasterMind
 
         private void MenuItemAfsluiten_Click(object sender, RoutedEventArgs e)
         {
-
+            Close();
         }
 
         private void MenuItemAantalPogingen_Click(object sender, RoutedEventArgs e)
