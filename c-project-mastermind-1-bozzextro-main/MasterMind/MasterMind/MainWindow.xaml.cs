@@ -23,7 +23,11 @@ namespace MasterMind
     {
         string[] kleurenArray = {"Rood", "Geel", "Oranje", "Wit", "Groen", "Blauw"};
         string[] code;
+        string[] highScores;
+        
+        
 
+        int gamesCounter = 0;
         int pogingenCounter = 0;
 
         string geselecteerdeKleur1;
@@ -54,6 +58,8 @@ namespace MasterMind
             InitializeComponent();
             GenereerCode();
             VulCbo();
+            highScores = new string[15];
+
         }
         public void GenereerCode()
         {
@@ -324,6 +330,10 @@ namespace MasterMind
 
         private void ResetGame()
         {
+            //naam speler moet nog geimplementeert worden
+            highScores[gamesCounter] = $"Naam speler - {pogingenCounter} Pogingen - {score}/100";
+            gamesCounter++;
+
             GenereerCode();
             Cbo1.SelectedIndex = -1;
             Cbo2.SelectedIndex = -1;
