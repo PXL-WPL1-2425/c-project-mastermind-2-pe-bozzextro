@@ -71,7 +71,7 @@ namespace MasterMind
                     code[i] = kleurenArray[rng];
                     alGebruikteRngs.Add(rng);
                     i++;
-                }
+                } 
             }
            
             this.Title = $"MasterMind({string.Join(",", code)})";
