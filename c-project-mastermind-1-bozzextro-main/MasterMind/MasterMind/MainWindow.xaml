@@ -14,34 +14,46 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="20px"/>
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <StackPanel>
+        <Menu Width="150px" HorizontalAlignment="Left">
+            <MenuItem Header="Bestand">
+                <MenuItem Header="Nieuw spel" Name="MenuItemNieuwSpel" Click="MenuItemNieuwSpel_Click"/>
+                <MenuItem Header="Highscores" Name="MenuItemHighscores" Click="MenuItemHighscores_Click"/>
+                <MenuItem Header="Afsluiten" Name="MenuItemAfsluiten" Click="MenuItemAfsluiten_Click"/>
+            </MenuItem>
+            <MenuItem Header="Instellingen">
+                <MenuItem Header="Aantal Pogingen" Name="MenuItemAantalPogingen" Click="MenuItemAantalPogingen_Click"/>
+            </MenuItem>
+        </Menu>
+        
+        <StackPanel Grid.Row="1">
             <ComboBox Name="Cbo1" SelectionChanged="Cbo1_SelectionChanged"/>
             <Label Name="Lbl1" Height="80" Width="80" Margin="20" BorderBrush="Black" BorderThickness="3"/>
         </StackPanel>
-        <StackPanel Grid.Column="3">
+        <StackPanel Grid.Column="3" Grid.Row="1">
             <ComboBox Name="Cbo2" SelectionChanged="Cbo2_SelectionChanged"/>
             <Label Name="Lbl2" Height="80" Width="80" Margin="20" BorderBrush="Black" BorderThickness="3"/>
 
         </StackPanel>
-        <StackPanel Grid.Row="1">
+        <StackPanel Grid.Row="2">
             <ComboBox Name="Cbo3" SelectionChanged="Cbo3_SelectionChanged"/>
             <Label Name="Lbl3" Height="80" Width="80" Margin="20" BorderBrush="Black" BorderThickness="3"/>
 
         </StackPanel>
-        <StackPanel Grid.Column="3" Grid.Row="1">
+        <StackPanel Grid.Column="3" Grid.Row="2">
             <ComboBox Name="Cbo4" SelectionChanged="Cbo4_SelectionChanged"/>
             <Label Name="Lbl4" Height="80" Width="80" Margin="20" BorderBrush="Black" BorderThickness="3"/>
 
         </StackPanel>
-        <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top">
+        <StackPanel Grid.ColumnSpan="2" Grid.Column="1" Grid.RowSpan="3" HorizontalAlignment="Center" VerticalAlignment="Top" Grid.Row="1" >
             <Button Name="BtnCheck" Click="BtnCheck_Click" Content="Check code" Height="30" Width="120" Background="Green"/>
             <Label Name="LblPogingen" Content="Poging 0/10" Width="120" Height="35" FontSize="16"/>
             <Label Name="LblScore" Content="Score: 100" Width="120" Height="35" FontSize="16"/>
-            <StackPanel x:Name="StackPanelHistorie" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
+            <StackPanel x:Name="StackPanelHistorie" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Top">
 
             </StackPanel>
         </StackPanel>

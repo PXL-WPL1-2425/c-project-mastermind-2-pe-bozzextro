@@ -351,5 +351,30 @@ namespace MasterMind
                 e.Cancel = true;
             }             
         }
+
+        private void MenuItemNieuwSpel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemHighscores_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemInstellingen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemAfsluiten_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItemAantalPogingen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
