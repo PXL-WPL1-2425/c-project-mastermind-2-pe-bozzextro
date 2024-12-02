@@ -396,12 +396,12 @@ namespace MasterMind
 
         private void MenuItemNieuwSpel_Click(object sender, RoutedEventArgs e)
         {
-
+            ResetGame();
         }
 
         private void MenuItemHighscores_Click(object sender, RoutedEventArgs e)
         {
-
+            MessageBox.Show(string.Join(", \n", highScores));
         }
 
         private void MenuItemInstellingen_Click(object sender, RoutedEventArgs e)
